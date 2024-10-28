@@ -1,0 +1,14 @@
+@baseUrl = http://127.0.0.1:3333
+
+### AppControllerGetHello
+
+# @name AppControllerGetHello
+
+GET {{baseUrl}}/home/hello
+
+
+### ExemploDeRota
+
+# @name ExemploDeRota
+
+GET @{{baseUrl}}:3333/home/exemplo
