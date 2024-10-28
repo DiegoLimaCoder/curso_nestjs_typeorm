@@ -1,25 +1,5 @@
 @baseUrl = http://127.0.0.1:3333
 
-### AppControllerGetHello
+### MessagesController
 
-# @name AppControllerGetHello
-GET {{baseUrl}}/home/hello
-
-### ExemploDeRota
-
-# @name ExemploDeRota
-GET {{baseUrl}}/home/exemplo
-
-
-
-### ConceitosManualController Home
-
-# @name ConceitosManualControllerHome
-
-GET {{baseUrl}}/conceito-manual
-
-### ConceitosAutoController Home
-
-# @name ConceitosAutoControllerHome
-
-GET {{baseUrl}}/conceito-automatico
+GET {{baseUrl}}/messages
