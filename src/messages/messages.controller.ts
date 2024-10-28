@@ -7,7 +7,7 @@ export class MessagesController {
     return 'Essa rota retorna todos os recados';
   }
 
-  @Get()
+  @Get(':id')
   findOne() {
     return 'Essa rota rotorna um recado';
   }

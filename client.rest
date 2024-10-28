@@ -1,5 +1,10 @@
 @baseUrl = http://127.0.0.1:3333
 
-### MessagesController
+# Recados
+
+### MessagesController -> Retorna todos os recados
 
 GET {{baseUrl}}/messages
+
+### ### MessagesController -> Retorna um recados
+GET {{baseUrl}}/messages/1
