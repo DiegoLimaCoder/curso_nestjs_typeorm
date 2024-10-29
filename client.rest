@@ -10,4 +10,9 @@ GET {{baseUrl}}/messages
 GET {{baseUrl}}/messages/1
 
 ### MessagesController -> Cria um novo recado
-POST {{baseUrl}}/messages/
+POST {{baseUrl}}/messages
+Content-Type: application/json
+
+{
+  "messages": "Esse é o recado que estou enviado"
+}
