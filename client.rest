@@ -24,3 +24,7 @@ Content-Type: application/json
 {
   "messages": "Atualizando um novo recado"
 }
+
+### MessagesController -> Deleta um recado
+DELETE   {{baseUrl}}/messages/1
+Content-Type: application/json
