@@ -6,5 +6,8 @@
 
 GET {{baseUrl}}/messages
 
-### ### MessagesController -> Retorna um recados
+### ### MessagesController -> Retorna um recado
 GET {{baseUrl}}/messages/1
+
+### MessagesController -> Cria um novo recado
+POST {{baseUrl}}/messages/
