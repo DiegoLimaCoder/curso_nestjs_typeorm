@@ -23,24 +23,21 @@ export class MessagesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return `Essa rota rotorna um recado ID:${id}`;
+    return this.messagesService.findOne(id);
   }
 
   @Post()
-  create(@Body() data: string) {
-    return data;
+  create(@Body() body: any) {
+    return this.messagesService.create(body);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() body: any) {
-    return {
-      id,
-      ...body,
-    };
+    return this.messagesService.update(id, body);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return 'Essa roda apagar o id:' + id;
+    return this.messagesService.remove(id);
   }
 }

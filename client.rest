@@ -10,24 +10,32 @@ GET {{baseUrl}}/messages/
 
 
 ### ### MessagesController -> Retorna um recado
-GET {{baseUrl}}/messages/1
+GET {{baseUrl}}/messages/2
 
 ### MessagesController -> Cria um novo recado
 POST {{baseUrl}}/messages
 Content-Type: application/json
 
 {
-  "messages": "Esse é o recado que estou enviado"
+  "text": "create new messages",
+  "from": "Jhon",
+  "to": "Maria",
+  "read": false,
+  "date": "2024-10-31T10:18:24.807Z"
 }
 
 ### MessagesController -> atualiza um recado
-PATCH  {{baseUrl}}/messages/1
+PATCH  {{baseUrl}}/messages/4
 Content-Type: application/json
 
 {
-  "messages": "Atualizando um novo recado"
+  "text": "update messages",
+  "from": "Jhon",
+  "to": "Maria",
+  "read": false,
+  "date": "2024-10-31T10:18:24.807Z"
 }
 
 ### MessagesController -> Deleta um recado
-DELETE   {{baseUrl}}/messages/1
+DELETE   {{baseUrl}}/messages/4
 Content-Type: application/json
