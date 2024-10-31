@@ -25,7 +25,7 @@ Content-Type: application/json
 }
 
 ### MessagesController -> atualiza um recado
-PATCH  {{baseUrl}}/messages/4
+PATCH  {{baseUrl}}/messages/2
 Content-Type: application/json
 
 {
@@ -37,5 +37,5 @@ Content-Type: application/json
 }
 
 ### MessagesController -> Deleta um recado
-DELETE   {{baseUrl}}/messages/4
+DELETE   {{baseUrl}}/messages/2
 Content-Type: application/json
