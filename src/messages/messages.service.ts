@@ -12,7 +12,6 @@ export class MessagesService {
     private readonly messagesRepository: Repository<Messages>,
   ) {}
 
-  private lastid = 1;
   private messages: Messages[] = [
     {
       id: 1,
@@ -24,17 +23,15 @@ export class MessagesService {
     },
   ];
 
-  create(createMessageDto: CreateMessageDto) {
-    this.lastid++;
-    const id = this.lastid;
+  async create(createMessageDto: CreateMessageDto) {
     const newMessage = {
-      id,
       ...createMessageDto,
       read: false,
       date: new Date(),
     };
-    this.messages.push(newMessage);
-    return newMessage;
+    const message = await this.messagesRepository.create(newMessage);
+
+    return this.messagesRepository.save(message);
   }
 
   async findAll() {
@@ -71,13 +68,13 @@ export class MessagesService {
     return this.messages[index];
   }
 
-  remove(id: number) {
-    const index = this.messages.findIndex((item) => item.id === id);
+  async remove(id: number) {
+    const message = await this.messagesRepository.findOneBy({
+      id,
+    });
 
-    if (index < 0) {
-      throw new NotFoundException();
-    }
+    if (!message) throw new NotFoundException();
 
-    this.messages.splice(index, 1);
+    return this.messagesRepository.remove(message);
   }
 }
