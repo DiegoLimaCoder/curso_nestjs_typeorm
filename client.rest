@@ -32,7 +32,7 @@ Content-Type: application/json
   "text": "update messages",
   "from": "Jhon",
   "to": "Maria",
-  "read": false,
+  "read": true,
   "date": "2024-10-31T10:18:24.807Z"
 }
 
