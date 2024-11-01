@@ -19,9 +19,7 @@ Content-Type: application/json
 {
   "text": "create new messages",
   "from": "Jhon",
-  "to": "Maria",
-  "read": false,
-  "date": "2024-10-31T10:18:24.807Z"
+  "to": "Maria"
 }
 
 ### MessagesController -> atualiza um recado
@@ -32,8 +30,7 @@ Content-Type: application/json
   "text": "update messages",
   "from": "Jhon",
   "to": "Maria",
-  "read": true,
-  "date": "2024-10-31T10:18:24.807Z"
+  "read": true
 }
 
 ### MessagesController -> Deleta um recado
