@@ -34,18 +34,16 @@ export class MessagesService {
     return this.messages;
   }
 
-  findOne(id: string) {
-    const message = this.messages.find((item) => item.id === Number(id));
+  findOne(id: number) {
+    const message = this.messages.find((item) => item.id === id);
 
     if (message) return message;
 
     throw new NotFoundException();
   }
 
-  update(id: string, updateMessageDto: UpdateMessageDto) {
-    const index = this.messages.findIndex(
-      (message) => message.id === Number(id),
-    );
+  update(id: number, updateMessageDto: UpdateMessageDto) {
+    const index = this.messages.findIndex((message) => message.id === id);
 
     if (index < 0) {
       throw new NotFoundException();
@@ -61,8 +59,8 @@ export class MessagesService {
     return this.messages[index];
   }
 
-  remove(id: string) {
-    const index = this.messages.findIndex((item) => item.id === Number(id));
+  remove(id: number) {
+    const index = this.messages.findIndex((item) => item.id === id);
 
     if (index < 0) {
       throw new NotFoundException();

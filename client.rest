@@ -34,5 +34,5 @@ Content-Type: application/json
 }
 
 ### MessagesController -> Deleta um recado
-DELETE   {{baseUrl}}/messages/2
+DELETE   {{baseUrl}}/messages/3
 Content-Type: application/json
