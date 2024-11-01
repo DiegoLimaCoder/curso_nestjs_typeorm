@@ -12,17 +12,6 @@ export class MessagesService {
     private readonly messagesRepository: Repository<Messages>,
   ) {}
 
-  private messages: Messages[] = [
-    {
-      id: 1,
-      text: 'new text',
-      from: 'Jhon',
-      to: 'Maria',
-      read: false,
-      date: new Date(),
-    },
-  ];
-
   async create(createMessageDto: CreateMessageDto) {
     const newMessage = {
       ...createMessageDto,
@@ -51,21 +40,20 @@ export class MessagesService {
     throw new NotFoundException();
   }
 
-  update(id: number, updateMessageDto: UpdateMessageDto) {
-    const index = this.messages.findIndex((message) => message.id === id);
-
-    if (index < 0) {
-      throw new NotFoundException();
-    }
-
-    const existingMessage = this.messages[index];
-
-    this.messages[index] = {
-      ...existingMessage,
-      ...updateMessageDto,
+  async update(id: number, updateMessageDto: UpdateMessageDto) {
+    const partialUpdateMessageDto = {
+      text: updateMessageDto?.text,
+      read: updateMessageDto?.read,
     };
 
-    return this.messages[index];
+    const message = await this.messagesRepository.preload({
+      id,
+      ...partialUpdateMessageDto,
+    });
+
+    if (!message) throw new NotFoundException();
+
+    return await this.messagesRepository.save(message);
   }
 
   async remove(id: number) {

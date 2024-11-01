@@ -23,13 +23,11 @@ Content-Type: application/json
 }
 
 ### MessagesController -> atualiza um recado
-PATCH  {{baseUrl}}/messages/2
+PATCH  {{baseUrl}}/messages/3
 Content-Type: application/json
 
 {
   "text": "update messages",
-  "from": "Jhon",
-  "to": "Maria",
   "read": true
 }
 
