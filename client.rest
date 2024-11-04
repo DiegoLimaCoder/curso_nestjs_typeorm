@@ -67,5 +67,5 @@ Content-Type: application/json
 
 ### UserController -> Deleta um usuário
 
-DELETE   {{baseUrl}}/users/1
+DELETE   {{baseUrl}}/users/6
 Content-Type: application/json
