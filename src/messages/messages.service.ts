@@ -15,18 +15,52 @@ export class MessagesService {
   ) {}
 
   async create(createMessageDto: CreateMessageDto) {
+    const { fromId, toId } = createMessageDto;
+    // Encontrar a pessoa que está criando o recado
+    const from = await this.userService.findOne(fromId);
+
+    // Encontrar a pessoa para quem o recado está sendo enviado
+    const to = await this.userService.findOne(toId);
+
     const newMessage = {
-      ...createMessageDto,
+      text: createMessageDto.text,
+      from,
+      to,
       read: false,
       date: new Date(),
     };
     const message = await this.messagesRepository.create(newMessage);
 
-    return this.messagesRepository.save(message);
+    this.messagesRepository.save(message);
+
+    return {
+      ...message,
+      from: {
+        from: message.from.id,
+      },
+      to: {
+        to: message.to.id,
+      },
+    };
   }
 
   async findAll() {
-    const messages = await this.messagesRepository.find();
+    const messages = await this.messagesRepository.find({
+      relations: ['from', 'to'],
+      order: {
+        id: 'DESC',
+      },
+      select: {
+        from: {
+          id: true,
+          name: true,
+        },
+        to: {
+          id: true,
+          name: true,
+        },
+      },
+    });
     return messages;
   }
 
@@ -34,6 +68,17 @@ export class MessagesService {
     const message = await this.messagesRepository.findOne({
       where: {
         id,
+      },
+      relations: ['from', 'to'],
+      select: {
+        from: {
+          id: true,
+          name: true,
+        },
+        to: {
+          id: true,
+          name: true,
+        },
       },
     });
 
