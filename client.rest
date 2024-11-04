@@ -10,7 +10,7 @@ GET {{baseUrl}}/messages/
 
 
 ### ### MessagesController -> Retorna um recado
-GET {{baseUrl}}/messages/7
+GET {{baseUrl}}/messages/12
 
 ### MessagesController -> Cria um novo recado
 POST {{baseUrl}}/messages
@@ -18,16 +18,16 @@ Content-Type: application/json
 
 {
   "text": "Enviando um recado para Jhon",
-  "fromId": 8,
-  "toId": 7
+  "fromId": 10,
+  "toId": 11
 }
 
 ### MessagesController -> atualiza um recado
-PATCH  {{baseUrl}}/messages/3
+PATCH  {{baseUrl}}/messages/12
 Content-Type: application/json
 
 {
-  "text": "update messages",
+  "text": "Enviando um recado para João",
   "read": true
 }
 
@@ -49,8 +49,8 @@ POST {{baseUrl}}/users
 Content-Type: application/json
 
 {
-  "name": "Maria",
-  "email": "maria@gmail.com",
+  "name": "Joao",
+  "email": "joao@gmail.com",
   "password": "123456"
 }
 
