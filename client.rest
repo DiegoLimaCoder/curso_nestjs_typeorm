@@ -34,3 +34,38 @@ Content-Type: application/json
 ### MessagesController -> Deleta um recado
 DELETE   {{baseUrl}}/messages/1
 Content-Type: application/json
+
+
+# User
+
+### UserController -> Busca todos user
+GET {{baseUrl}}/users
+
+### UserController -> Busca um user espeficado pelo id
+GET {{baseUrl}}/messages/2
+
+### UserController -> Cria um novo user
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "name": "Jhon Doe",
+  "email": "jhoedoe@gmail.com",
+  "password": "123456"
+}
+
+### UserController -> Atualizar um usuário
+
+PATCH  {{baseUrl}}/users/3
+Content-Type: application/json
+
+{
+  "text": "update messages",
+  "read": true
+}
+
+
+### UserController -> Deleta um usuário
+
+DELETE   {{baseUrl}}/users/1
+Content-Type: application/json
