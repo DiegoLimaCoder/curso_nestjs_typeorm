@@ -10,16 +10,16 @@ GET {{baseUrl}}/messages/
 
 
 ### ### MessagesController -> Retorna um recado
-GET {{baseUrl}}/messages/2
+GET {{baseUrl}}/messages/7
 
 ### MessagesController -> Cria um novo recado
 POST {{baseUrl}}/messages
 Content-Type: application/json
 
 {
-  "text": "create new messages",
-  "from": "Jhon",
-  "to": "Maria"
+  "text": "Enviando um recado para Jhon",
+  "fromId": 8,
+  "toId": 7
 }
 
 ### MessagesController -> atualiza um recado
@@ -32,7 +32,7 @@ Content-Type: application/json
 }
 
 ### MessagesController -> Deleta um recado
-DELETE   {{baseUrl}}/messages/1
+DELETE   {{baseUrl}}/messages/10
 Content-Type: application/json
 
 
@@ -49,8 +49,8 @@ POST {{baseUrl}}/users
 Content-Type: application/json
 
 {
-  "name": "Jhon Doe",
-  "email": "jhoedoe@gmail.com",
+  "name": "Maria",
+  "email": "maria@gmail.com",
   "password": "123456"
 }
 
@@ -67,5 +67,5 @@ Content-Type: application/json
 
 ### UserController -> Deleta um usuário
 
-DELETE   {{baseUrl}}/users/6
+DELETE   {{baseUrl}}/users/8
 Content-Type: application/json
