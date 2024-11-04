@@ -4,12 +4,14 @@ import { UpdateMessageDto } from './dto/update-message.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Messages } from './entities/messages.entity';
 import { Repository } from 'typeorm';
+import { UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class MessagesService {
   constructor(
     @InjectRepository(Messages)
     private readonly messagesRepository: Repository<Messages>,
+    private readonly userService: UsersService,
   ) {}
 
   async create(createMessageDto: CreateMessageDto) {
