@@ -56,12 +56,12 @@ Content-Type: application/json
 
 ### UserController -> Atualizar um usuário
 
-PATCH  {{baseUrl}}/users/3
+PATCH  {{baseUrl}}/users/7
 Content-Type: application/json
 
 {
-  "text": "update messages",
-  "read": true
+  "name": "Diego",
+  "password": "654321"
 }
 
 
