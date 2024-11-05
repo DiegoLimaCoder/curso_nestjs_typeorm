@@ -5,8 +5,8 @@
 ### MessagesController -> Retorna todos os recados
 
 GET {{baseUrl}}/messages/
-?limit=101
-&offset=300
+?limit=2
+&offset=2
 
 
 ### ### MessagesController -> Retorna um recado
@@ -27,8 +27,8 @@ PATCH  {{baseUrl}}/messages/12
 Content-Type: application/json
 
 {
-  "text": "Enviando um recado para João",
-  "read": true
+  "text": "Enviando um recado para João 2",
+  "read": false
 }
 
 ### MessagesController -> Deleta um recado
