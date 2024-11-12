@@ -5,7 +5,7 @@
 ### MessagesController -> Retorna todos os recados
 
 GET {{baseUrl}}/messages/
-?limit=2
+?limit=3
 &offset=2
 
 
