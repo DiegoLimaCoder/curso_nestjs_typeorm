@@ -18,9 +18,11 @@ import { UpdateMessageDto } from './dto/update-message.dto';
 import { PaginationDTO } from 'src/common/dto/pagination.dto,';
 import { ParseIntIdPipe } from 'src/common/pipes/parse-int-id.pipe';
 import { ChangeDataInterceptor } from 'src/common/interceptors/change-data.interceptor';
+import { AuthTokenInterceptor } from 'src/common/interceptors/auth-token.interceptor';
 
 @Controller('messages')
 @UsePipes(ParseIntIdPipe)
+@UseInterceptors(AuthTokenInterceptor)
 export class MessagesController {
   constructor(private readonly messagesService: MessagesService) {}
 

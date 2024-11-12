@@ -7,7 +7,7 @@
 GET {{baseUrl}}/messages/
 ?limit=3
 &offset=2
-
+Authorization: Bearer 123456
 
 ### ### MessagesController -> Retorna um recado
 GET {{baseUrl}}/messages/16
