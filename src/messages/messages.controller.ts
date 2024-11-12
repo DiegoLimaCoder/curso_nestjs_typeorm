@@ -19,6 +19,7 @@ import { PaginationDTO } from 'src/common/dto/pagination.dto,';
 import { ParseIntIdPipe } from 'src/common/pipes/parse-int-id.pipe';
 import { AddHeaderInterceptor } from 'src/common/interceptors/add-header.interceptor';
 import { TimingConnectionInterceptor } from 'src/common/interceptors/timing-connection.interceptor';
+import { ErrorHandlingInterceptor } from 'src/common/interceptors/error-handling.interceptor';
 
 @Controller('messages')
 @UsePipes(ParseIntIdPipe)
@@ -26,10 +27,12 @@ export class MessagesController {
   constructor(private readonly messagesService: MessagesService) {}
 
   @HttpCode(HttpStatus.OK)
-  @UseInterceptors(TimingConnectionInterceptor)
+  @UseInterceptors(TimingConnectionInterceptor, ErrorHandlingInterceptor)
   @Get()
   findAll(@Query() paginationDto: PaginationDTO) {
-    return this.messagesService.findAll(paginationDto);
+    throw new Error();
+
+    //return this.messagesService.findAll(paginationDto);
   }
 
   @Get(':id')
