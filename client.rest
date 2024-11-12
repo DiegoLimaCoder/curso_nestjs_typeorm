@@ -18,8 +18,8 @@ Content-Type: application/json
 
 {
   "text": "Enviando um recado para Jhon",
-  "fromId": 10,
-  "toId": 11
+  "fromId": 1,
+  "toId": 3
 }
 
 ### MessagesController -> atualiza um recado
@@ -50,7 +50,7 @@ Content-Type: application/json
 
 {
   "name": "Joao",
-  "email": "joao@gmail.com",
+  "email": "joao2@gmail.com",
   "password": "123456"
 }
 

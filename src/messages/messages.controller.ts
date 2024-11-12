@@ -17,16 +17,16 @@ import { CreateMessageDto } from './dto/create-message.dto';
 import { UpdateMessageDto } from './dto/update-message.dto';
 import { PaginationDTO } from 'src/common/dto/pagination.dto,';
 import { ParseIntIdPipe } from 'src/common/pipes/parse-int-id.pipe';
-import { SimpleCacheInterceptor } from 'src/common/interceptors/simple-cache.interceptor';
+import { ChangeDataInterceptor } from 'src/common/interceptors/change-data.interceptor';
 
 @Controller('messages')
-@UseInterceptors(SimpleCacheInterceptor)
 @UsePipes(ParseIntIdPipe)
 export class MessagesController {
   constructor(private readonly messagesService: MessagesService) {}
 
   @HttpCode(HttpStatus.OK)
   @Get()
+  @UseInterceptors(ChangeDataInterceptor)
   findAll(@Query() paginationDto: PaginationDTO) {
     return this.messagesService.findAll(paginationDto);
   }
